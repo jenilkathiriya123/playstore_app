@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pr_1_3/page/Global.dart';
 import 'package:pr_1_3/screens/For_you.dart';
+import 'package:pr_1_3/screens/top_charts.dart';
 
 void main() {
   runApp(
@@ -40,15 +40,8 @@ class _PlayStoreState extends State<PlayStore>
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
-          // title: Text(
-          //   "Search for apps and games",
-          //   style: TextStyle(
-          //     color: Colors.grey,
-          //     fontSize: 16,
-          //   ),
-          // ),
           flexibleSpace: Padding(
-            padding: const EdgeInsets.only(top: 40,left: 20,right: 20),
+            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
             child: SizedBox(
               height: 40,
               child: TextField(
@@ -77,7 +70,6 @@ class _PlayStoreState extends State<PlayStore>
               });
             },
             indicatorColor: Colors.green,
-
             tabs: [
               Tab(
                 child: Text(
@@ -136,15 +128,13 @@ class _PlayStoreState extends State<PlayStore>
             });
           },
           children: [
-           foryou(),
+            foryou(),
+            topcharts(),
             Container(
-              color: Colors.yellow,
+              color: Colors.white,
             ),
             Container(
-              color: Colors.green,
-            ),
-            Container(
-              color: Colors.blueAccent,
+              color: Colors.white,
             ),
           ],
         ),
