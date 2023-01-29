@@ -28,7 +28,7 @@ class _foryouState extends State<foryou> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right:7),
+                padding: const EdgeInsets.only(right: 7),
                 child: Icon(Icons.arrow_forward, color: Colors.black),
               ),
             ],
@@ -37,56 +37,23 @@ class _foryouState extends State<foryou> {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: Global.Games.map((e) => Container(
-                    height: 160,
-                    width: 120,
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    color: Colors.white,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            height: 100,
-                            width: 100,
-                            color: Colors.white,
-                            child: Image.asset(
-                              e['image'],
-                              fit: BoxFit.fill,
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text("${e['name']}"),
-                        ),
-                        Row(
-                          children: [
-                            Text("${e['rate']} "),
-                            Icon(Icons.star, size: 10),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )).toList(),
-            ),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: EdgeInsets.only(left: 10, right: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("New & Updated apps",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
-                Icon(Icons.arrow_forward, color: Colors.black),
-              ],
-            ),
-          ),
-          SizedBox(height: 20),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: Global.news_games
-                  .map((e) => Container(
+              children: Global.Games.map((e) => Builder(builder: (context) {
+                    return GestureDetector(
+                      onTap: () {
+                        Map<String, dynamic> map = {
+                          'image': e['image'],
+                          'image2': e['image2'],
+                          'image3': e['image3'],
+                          'name': e['name'],
+                          'rate': e['rate'],
+                          'name2': e['name2'],
+                          'rew': e['rew'],
+                          'down': e['down'],
+                          'mb': e['mb'],
+                        };
+                        Navigator.pushNamed(context, 'info', arguments: map);
+                      },
+                      child: Container(
                         height: 160,
                         width: 120,
                         padding: EdgeInsets.only(left: 10, right: 10),
@@ -114,7 +81,77 @@ class _foryouState extends State<foryou> {
                             ),
                           ],
                         ),
-                      ))
+                      ),
+                    );
+                  })).toList(),
+            ),
+          ),
+          SizedBox(height: 20),
+          Padding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("New & Updated apps",
+                    style:
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
+                Icon(Icons.arrow_forward, color: Colors.black),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: Global.news_games
+                  .map((e) => Builder(builder: (context) {
+                        return GestureDetector(
+                          onTap: () {
+                            Map<String, dynamic> map = {
+                              'image': e['image'],
+                              'image2': e['image2'],
+                              'image3': e['image3'],
+                              'name': e['name'],
+                              'rate': e['rate'],
+                              'name2': e['name2'],
+                              'rew': e['rew'],
+                              'down': e['down'],
+                              'mb': e['mb'],
+                            };
+                            Navigator.pushNamed(context, 'info',
+                                arguments: map);
+                          },
+                          child: Container(
+                            height: 160,
+                            width: 120,
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            color: Colors.white,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                    height: 100,
+                                    width: 100,
+                                    color: Colors.white,
+                                    child: Image.asset(
+                                      e['image'],
+                                      fit: BoxFit.fill,
+                                    )),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text("${e['name']}"),
+                                ),
+                                Row(
+                                  children: [
+                                    Text("${e['rate']} "),
+                                    Icon(Icons.star, size: 10),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }))
                   .toList(),
             ),
           ),
@@ -137,35 +174,54 @@ class _foryouState extends State<foryou> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: Global.multi
-                  .map((e) => Container(
-                        height: 160,
-                        width: 120,
-                        padding: EdgeInsets.only(left: 10, right: 10),
-                        color: Colors.white,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                                height: 100,
-                                width: 100,
-                                color: Colors.white,
-                                child: Image.asset(
-                                  e['image'],
-                                  fit: BoxFit.fill,
-                                )),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Text("${e['name']}"),
-                            ),
-                            Row(
+                  .map((e) => Builder(builder: (context) {
+                        return GestureDetector(
+                          onTap: () {
+                            Map<String, dynamic> map = {
+                              'image': e['image'],
+                              'image2': e['image2'],
+                              'image3': e['image3'],
+                              'name': e['name'],
+                              'rate': e['rate'],
+                              'name2': e['name2'],
+                              'rew': e['rew'],
+                              'down': e['down'],
+                              'mb': e['mb'],
+                            };
+                            Navigator.pushNamed(context, 'info',
+                                arguments: map);
+                          },
+                          child: Container(
+                            height: 160,
+                            width: 120,
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            color: Colors.white,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("${e['rate']} "),
-                                Icon(Icons.star, size: 10),
+                                Container(
+                                    height: 100,
+                                    width: 100,
+                                    color: Colors.white,
+                                    child: Image.asset(
+                                      e['image'],
+                                      fit: BoxFit.fill,
+                                    )),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text("${e['name']}"),
+                                ),
+                                Row(
+                                  children: [
+                                    Text("${e['rate']} "),
+                                    Icon(Icons.star, size: 10),
+                                  ],
+                                ),
                               ],
                             ),
-                          ],
-                        ),
-                      ))
+                          ),
+                        );
+                      }))
                   .toList(),
             ),
           ),

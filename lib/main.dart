@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pr_1_3/screens/For_you.dart';
+import 'package:pr_1_3/screens/all_information_page.dart';
 import 'package:pr_1_3/screens/top_charts.dart';
 
 void main() {
@@ -34,6 +35,9 @@ class _PlayStoreState extends State<PlayStore>
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        'info' : (context) => information(),
+      },
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         key: keys,
